@@ -1,6 +1,5 @@
 using MicroerviceOrnegi.Catalog.API.Options;
 using MicroerviceOrnegi.Catalog.API.Repositories;
-using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOptionsExt();

@@ -8,7 +8,7 @@ namespace MicroerviceOrnegi.Catalog.API.Options
         {
             services.AddOptions<MongoOption>().BindConfiguration(nameof(MongoOption)).ValidateDataAnnotations().ValidateOnStart();
 
-            services.AddSingleton(sp=>sp.GetRequiredService<IOptions<MongoOption>>().Value);
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<MongoOption>>().Value);
             return services;
         }
     }
