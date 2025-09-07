@@ -1,3 +1,4 @@
+using MicroerviceOrnegi.Catalog.API.Features.Categories;
 using MicroerviceOrnegi.Catalog.API.Options;
 using MicroerviceOrnegi.Catalog.API.Repositories;
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
+app.AddCategoryGroupEndpointExt();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
