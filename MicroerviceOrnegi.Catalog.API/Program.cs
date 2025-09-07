@@ -1,11 +1,13 @@
+using MicroerviceOrnegi.Catalog.API;
 using MicroerviceOrnegi.Catalog.API.Features.Categories;
 using MicroerviceOrnegi.Catalog.API.Options;
 using MicroerviceOrnegi.Catalog.API.Repositories;
+using MicroerviceOrnegi.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOptionsExt();
 builder.Services.AddDatabaseServiceExt();
-
+builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
