@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+using MicroerviceOrnegi.Shared.Extensions;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {
@@ -7,14 +7,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
     {
         public static RouteGroupBuilder CreateCategoryGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapPost("/", async (CreateCategoryCommand Command, IMediator mediator) =>
-            {
-                var result = await mediator.Send(Command);
-                return new ObjectResult(result)
-                {
-                    StatusCode = result.Status.GetHashCode()
-                };
-            });
+            group.MapPost("/", async (CreateCategoryCommand Command, IMediator mediator) => (await mediator.Send(Command)).ToGenericResult());
 
             return group;
         }
