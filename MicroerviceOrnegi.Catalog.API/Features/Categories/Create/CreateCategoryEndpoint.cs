@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MicroerviceOrnegi.Shared.Extensions;
+using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {
@@ -7,7 +8,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
     {
         public static RouteGroupBuilder CreateCategoryGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapPost("/", async (CreateCategoryCommand Command, IMediator mediator) => (await mediator.Send(Command)).ToGenericResult());
+            group.MapPost("/", async (CreateCategoryCommand Command, IMediator mediator) => (await mediator.Send(Command)).ToGenericResult()).AddEndpointFilter<ValidationFilter<CreateCategoryCommand>>();
 
             return group;
         }

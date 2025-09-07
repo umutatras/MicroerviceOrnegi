@@ -9,8 +9,8 @@ namespace MicroerviceOrnegi.Shared.Extensions
         {
             return serviceResult.Status switch
             {
-                HttpStatusCode.OK => Results.Ok(serviceResult),
-                HttpStatusCode.Created => Results.Created(serviceResult.UrlAsCreated, serviceResult),
+                HttpStatusCode.OK => Results.Ok(serviceResult.Data),
+                HttpStatusCode.Created => Results.Created(serviceResult.UrlAsCreated, serviceResult.Data),
                 HttpStatusCode.NotFound => Results.Problem(serviceResult.Fail!),
 
                 _ => Results.Problem(serviceResult.Fail!)
