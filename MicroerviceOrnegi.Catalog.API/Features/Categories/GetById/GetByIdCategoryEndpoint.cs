@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories.GetById
 {
 
-    public record GetByIdCategoryQuery(Guid Id) : IRequest<ServiceResult<CategoryDto>>;
+    public record GetByIdCategoryQuery(Guid Id) : IRequestByServiceResult<CategoryDto>;
     
     public class GetByIdCategoyHandler(AppDbContext context, IMapper mapper) : IRequestHandler<GetByIdCategoryQuery, ServiceResult<CategoryDto>>
     {
