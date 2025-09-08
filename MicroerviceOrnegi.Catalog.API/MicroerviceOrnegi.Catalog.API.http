@@ -1,6 +1,13 @@
-@MicroerviceOrnegi.Catalog.API_HostAddress = http://localhost:5105
+@baseAddress = http://localhost:5105
 
-GET {{MicroerviceOrnegi.Catalog.API_HostAddress}}/weatherforecast/
+GET {{baseAddress}}/api/categories
 Accept: application/json
 
+###
+POST {{baseAddress}}/api/categories
+Accept: application/json
+Content-Type : application/json
+{
+  "name":"Category 1"
+}
 ###
