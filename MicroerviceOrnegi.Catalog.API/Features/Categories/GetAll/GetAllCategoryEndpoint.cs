@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using MicroerviceOrnegi.Catalog.API.Features.Categories.Create;
 using MicroerviceOrnegi.Catalog.API.Features.Categories.Dtos;
 using MicroerviceOrnegi.Catalog.API.Repositories;
@@ -11,13 +12,13 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Categories.GetAll
 {
 
     public class GetAllCategoryQuery:IRequest<ServiceResult<List<CategoryDto>>>;
-    public class GetAllCategoyHandler(AppDbContext context) : IRequestHandler<GetAllCategoryQuery, ServiceResult<List<CategoryDto>>>
+    public class GetAllCategoyHandler(AppDbContext context,IMapper mapper) : IRequestHandler<GetAllCategoryQuery, ServiceResult<List<CategoryDto>>>
         {
         public async Task<ServiceResult<List<CategoryDto>>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
         {
             var categories = await context.Categories
                 .ToListAsync(cancellationToken);
-            var categoryAsDto=categories.Select(x=>new CategoryDto(x.Id,x.Name)).ToList();
+            var categoryAsDto = mapper.Map<List<CategoryDto>>(categories);
 
             return ServiceResult<List<CategoryDto>>.SuccessAsOk(categoryAsDto);
         }
