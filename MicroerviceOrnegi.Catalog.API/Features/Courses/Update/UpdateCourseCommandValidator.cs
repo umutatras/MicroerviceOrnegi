@@ -1,6 +1,6 @@
 ﻿namespace MicroerviceOrnegi.Catalog.API.Features.Courses.Update
 {
-    public class UpdateCourseCommandValidator:AbstractValidator<UpdateCourseCommand>
+    public class UpdateCourseCommandValidator : AbstractValidator<UpdateCourseCommand>
     {
         public UpdateCourseCommandValidator()
         {
