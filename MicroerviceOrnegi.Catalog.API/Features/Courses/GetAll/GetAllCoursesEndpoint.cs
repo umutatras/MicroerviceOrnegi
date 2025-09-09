@@ -1,18 +1,16 @@
-﻿using MicroerviceOrnegi.Catalog.API.Features.Categories.Create;
-using MicroerviceOrnegi.Catalog.API.Features.Courses.Dtos;
-using MicroerviceOrnegi.Shared.Filter;
+﻿using MicroerviceOrnegi.Catalog.API.Features.Courses.Dtos;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Courses.GetAll
 {
 
-    public record GetAllCoursesQuery():IRequestByServiceResult<List<CourseDto>>;
+    public record GetAllCoursesQuery() : IRequestByServiceResult<List<CourseDto>>;
 
     public class GetAllCoursesQueryHandler(AppDbContext context, IMapper mapper) : IRequestHandler<GetAllCoursesQuery, ServiceResult<List<CourseDto>>>
     {
         public async Task<ServiceResult<List<CourseDto>>> Handle(GetAllCoursesQuery request, CancellationToken cancellationToken)
         {
-           var courses=await context.Courses.ToListAsync(cancellationToken);
-            var categories=await context.Categories.ToListAsync(cancellationToken);
+            var courses = await context.Courses.ToListAsync(cancellationToken);
+            var categories = await context.Categories.ToListAsync(cancellationToken);
 
             foreach (var course in courses)
             {
@@ -22,7 +20,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses.GetAll
             return ServiceResult<List<CourseDto>>.SuccessAsOk(coursesAsDto);
         }
     }
-    
+
     public static class GetAllCoursesEndpoint
     {
         public static RouteGroupBuilder GetAllCoursesGroupItemEndpoint(this RouteGroupBuilder group)
