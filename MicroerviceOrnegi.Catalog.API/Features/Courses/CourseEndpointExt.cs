@@ -1,6 +1,7 @@
 ﻿using MicroerviceOrnegi.Catalog.API.Features.Courses.Create;
 using MicroerviceOrnegi.Catalog.API.Features.Courses.GetAll;
 using MicroerviceOrnegi.Catalog.API.Features.Courses.GetById;
+using MicroerviceOrnegi.Catalog.API.Features.Courses.Update;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Courses
 {
@@ -13,6 +14,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses
                 .CreateCourseGroupItemEndpoint()
                 .GetAllCoursesGroupItemEndpoint()
                 .GetCourseByIdGroupItemEndpoint()
+                .UpdateCourseGroupItemEndpoint()
                 .WithTags("Courses");
         }
     }
