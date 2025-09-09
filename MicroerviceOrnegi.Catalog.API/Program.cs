@@ -1,5 +1,6 @@
 using MicroerviceOrnegi.Catalog.API;
 using MicroerviceOrnegi.Catalog.API.Features.Categories;
+using MicroerviceOrnegi.Catalog.API.Features.Courses;
 using MicroerviceOrnegi.Catalog.API.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 app.AddCategoryGroupEndpointExt();
+app.AddCourseGroupEndpointExt();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
