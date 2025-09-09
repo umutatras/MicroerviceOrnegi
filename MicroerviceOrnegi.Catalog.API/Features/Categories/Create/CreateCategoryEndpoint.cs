@@ -1,6 +1,4 @@
-﻿using MediatR;
-using MicroerviceOrnegi.Shared.Extensions;
-using MicroerviceOrnegi.Shared.Filter;
+﻿using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {

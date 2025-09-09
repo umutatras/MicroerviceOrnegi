@@ -1,6 +1,5 @@
 ﻿using MicroerviceOrnegi.Catalog.API.Features.Categories;
 using MicroerviceOrnegi.Catalog.API.Features.Courses;
-using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using System.Reflection;
 

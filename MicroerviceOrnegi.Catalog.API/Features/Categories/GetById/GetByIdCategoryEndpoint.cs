@@ -1,18 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
-using MicroerviceOrnegi.Catalog.API.Features.Categories.Create;
-using MicroerviceOrnegi.Catalog.API.Features.Categories.Dtos;
-using MicroerviceOrnegi.Catalog.API.Repositories;
-using MicroerviceOrnegi.Shared;
-using MicroerviceOrnegi.Shared.Extensions;
-using MicroerviceOrnegi.Shared.Filter;
-using Microsoft.EntityFrameworkCore;
-
-namespace MicroerviceOrnegi.Catalog.API.Features.Categories.GetById
+﻿namespace MicroerviceOrnegi.Catalog.API.Features.Categories.GetById
 {
 
     public record GetByIdCategoryQuery(Guid Id) : IRequestByServiceResult<CategoryDto>;
-    
+
     public class GetByIdCategoyHandler(AppDbContext context, IMapper mapper) : IRequestHandler<GetByIdCategoryQuery, ServiceResult<CategoryDto>>
     {
         public async Task<ServiceResult<CategoryDto>> Handle(GetByIdCategoryQuery request, CancellationToken cancellationToken)
@@ -31,7 +21,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Categories.GetById
     {
         public static RouteGroupBuilder GetByIdCategoryGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapGet("/{id:guid}", async (IMediator mediator,Guid id) => (await mediator.Send(new GetByIdCategoryQuery(id))).ToGenericResult());
+            group.MapGet("/{id:guid}", async (IMediator mediator, Guid id) => (await mediator.Send(new GetByIdCategoryQuery(id))).ToGenericResult());
 
             return group;
         }

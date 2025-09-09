@@ -1,11 +1,4 @@
-﻿using MassTransit;
-using MediatR;
-using MicroerviceOrnegi.Catalog.API.Repositories;
-using MicroerviceOrnegi.Shared;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
-
-namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
+﻿namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {
     public class CreateCategoryCommandHandler(AppDbContext context) : IRequestHandler<CreateCategoryCommand, ServiceResult<CreateCategoryResponse>>
     {

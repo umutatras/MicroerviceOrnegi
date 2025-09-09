@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
+﻿namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {
     public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
     {

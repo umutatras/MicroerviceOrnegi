@@ -1,5 +1,4 @@
 ﻿using MicroerviceOrnegi.Catalog.API.Features.Courses;
-using MicroerviceOrnegi.Catalog.API.Repositories;
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories
 {
