@@ -1,4 +1,5 @@
 ﻿using MicroerviceOrnegi.Catalog.API.Features.Courses.Create;
+using MicroerviceOrnegi.Catalog.API.Features.Courses.Delete;
 using MicroerviceOrnegi.Catalog.API.Features.Courses.GetAll;
 using MicroerviceOrnegi.Catalog.API.Features.Courses.GetById;
 using MicroerviceOrnegi.Catalog.API.Features.Courses.Update;
@@ -15,6 +16,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses
                 .GetAllCoursesGroupItemEndpoint()
                 .GetCourseByIdGroupItemEndpoint()
                 .UpdateCourseGroupItemEndpoint()
+                .DeleteCourseGroupItemEndpoint()
                 .WithTags("Courses");
         }
     }
