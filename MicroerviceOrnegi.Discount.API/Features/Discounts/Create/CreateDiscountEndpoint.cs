@@ -3,7 +3,7 @@ using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Discount.API.Features.Discounts.Create
 {
-    public static class CreateDiscountEndpoint
+    public static class GetDiscountByCodeEndpoint
     {
         public static RouteGroupBuilder CreateDiscountGroupItemEndpoint(this RouteGroupBuilder group)
         {

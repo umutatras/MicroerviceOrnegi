@@ -13,7 +13,7 @@ namespace MicroerviceOrnegi.Discount.API.Features.Discounts.Create
             var hasCode = await context.Discounts.AnyAsync(x => x.Code == request.Code && x.UserId == identityService.GetUserId, cancellationToken);
             if (hasCode)
             {
-                return ServiceResult.Error("This code already exists.","",System.Net.HttpStatusCode.BadRequest);
+                return ServiceResult.Error("This code already exists.", "", System.Net.HttpStatusCode.BadRequest);
             }
             var discount = new Discount
             {

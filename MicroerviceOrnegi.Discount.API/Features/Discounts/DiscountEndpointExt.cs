@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning.Builder;
 using MicroerviceOrnegi.Discount.API.Features.Discounts.Create;
+using MicroerviceOrnegi.Discount.API.Features.Discounts.GetById;
 
 namespace MicroerviceOrnegi.Discount.API.Features.Discounts
 {
@@ -10,7 +11,8 @@ namespace MicroerviceOrnegi.Discount.API.Features.Discounts
             app.MapGroup("api/v{version:apiVersion}/discounts")
                 .WithTags("Discounts")
                 .WithApiVersionSet(apiVersionSet)
-                .CreateDiscountGroupItemEndpoint();
+                .CreateDiscountGroupItemEndpoint()
+                .GetDiscountByCodeGroupItemEndpoint();
         }
     }
 }
