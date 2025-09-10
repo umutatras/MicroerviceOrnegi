@@ -1,0 +1,6 @@
+@MicroerviceOrnegi.Discount.API_HostAddress = http://localhost:5081
+
+GET {{MicroerviceOrnegi.Discount.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

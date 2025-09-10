@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{C9D550
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroerviceOrnegi.Shared", "MicroerviceOrnegi.Shared\MicroerviceOrnegi.Shared.csproj", "{1133153A-1F36-4A84-97A5-05B36C2EA381}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "discount", "discount", "{6E4BFD97-3120-4F4D-9533-BDD430ABC2B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroerviceOrnegi.Discount.API", "MicroerviceOrnegi.Discount.API\MicroerviceOrnegi.Discount.API.csproj", "{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{1133153A-1F36-4A84-97A5-05B36C2EA381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1133153A-1F36-4A84-97A5-05B36C2EA381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1133153A-1F36-4A84-97A5-05B36C2EA381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +53,7 @@ Global
 		{A42CB454-B563-4906-B19C-57E7F9DC67C1} = {ECDF2ADD-6ADC-450D-BA96-B43B309794D1}
 		{C9D550BA-76F7-4F09-A939-370450CD083E} = {BFB987F3-47B5-4FC7-BBA2-9123B2AA03C6}
 		{1133153A-1F36-4A84-97A5-05B36C2EA381} = {C9D550BA-76F7-4F09-A939-370450CD083E}
+		{6E4BFD97-3120-4F4D-9533-BDD430ABC2B5} = {A9C4B69E-E5E3-40E5-A1F2-AEE7E0139DE6}
+		{3EA1CC96-BD84-40E2-A8A7-E7840BA1A63D} = {6E4BFD97-3120-4F4D-9533-BDD430ABC2B5}
 	EndGlobalSection
 EndGlobal
