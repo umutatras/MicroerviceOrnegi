@@ -1,4 +1,5 @@
 using MicroerviceOrnegi.Discount.API;
+using MicroerviceOrnegi.Discount.API.Features.Discounts;
 using MicroerviceOrnegi.Discount.API.Options;
 using MicroerviceOrnegi.Discount.API.Repositories;
 
@@ -14,7 +15,7 @@ builder.Services.AddCommonServiceExt(typeof(DiscountAssembly));
 builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
-
+app.AddDiscountGroupEndpointExt(app.AddVersionSetExt());
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

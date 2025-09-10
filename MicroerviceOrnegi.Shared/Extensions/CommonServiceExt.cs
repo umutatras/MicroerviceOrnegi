@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MicroerviceOrnegi.Shared.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MicroerviceOrnegi.Shared.Extensions
@@ -11,6 +12,7 @@ namespace MicroerviceOrnegi.Shared.Extensions
             services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining(assembly));
             services.AddValidatorsFromAssemblyContaining(assembly);
             services.AddAutoMapper(assembly);
+            services.AddScoped<IIdentityService, IIdentityServiceFake>();
             return services;
         }
     }
