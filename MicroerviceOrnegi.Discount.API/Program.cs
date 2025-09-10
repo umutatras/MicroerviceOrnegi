@@ -1,4 +1,6 @@
 using MicroerviceOrnegi.Discount.API;
+using MicroerviceOrnegi.Discount.API.Options;
+using MicroerviceOrnegi.Discount.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddOptionsExt();
-//builder.Services.AddDatabaseServiceExt();
+builder.Services.AddOptionsExt();
+builder.Services.AddDatabaseServiceExt();
 builder.Services.AddCommonServiceExt(typeof(DiscountAssembly));
 builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();

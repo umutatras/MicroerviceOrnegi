@@ -1,15 +1,12 @@
-﻿
-using MicroerviceOrnegi.Catalog.API.Features.Courses.GetById;
-
-namespace MicroerviceOrnegi.Catalog.API.Features.Courses.Delete
+﻿namespace MicroerviceOrnegi.Catalog.API.Features.Courses.Delete
 {
-    public record DeleteCourseCommand(Guid Id):IRequestByServiceResult;
+    public record DeleteCourseCommand(Guid Id) : IRequestByServiceResult;
 
     public class DeleteCourseCommandHandler(AppDbContext context) : IRequestHandler<DeleteCourseCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(DeleteCourseCommand request, CancellationToken cancellationToken)
         {
-            var course=await context.Courses.FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
+            var course = await context.Courses.FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
             if (course == null)
             {
                 return ServiceResult.ErrorAsNotFound();

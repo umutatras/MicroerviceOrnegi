@@ -2,14 +2,14 @@
 
 namespace MicroerviceOrnegi.Catalog.API.Features.Courses.GetAllByUserId
 {
-   
+
     public record class GetCourseByUserIdQuery(Guid Id) : IRequestByServiceResult<List<CourseDto>>;
 
     public class GetCourseByUserIdQueryHandler(AppDbContext context, IMapper mapper) : IRequestHandler<GetCourseByUserIdQuery, ServiceResult<List<CourseDto>>>
     {
         public async Task<ServiceResult<List<CourseDto>>> Handle(GetCourseByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var courses = await context.Courses.Where(x=>x.UserId==request.Id).ToListAsync(cancellationToken);
+            var courses = await context.Courses.Where(x => x.UserId == request.Id).ToListAsync(cancellationToken);
             var categories = await context.Categories.ToListAsync(cancellationToken);
 
             foreach (var course in courses)

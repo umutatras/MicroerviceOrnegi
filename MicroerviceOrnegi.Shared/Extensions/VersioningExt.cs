@@ -2,11 +2,6 @@
 using Asp.Versioning.Builder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicroerviceOrnegi.Shared.Extensions
 {
@@ -16,7 +11,7 @@ namespace MicroerviceOrnegi.Shared.Extensions
         {
             services.AddApiVersioning(options =>
             {
-                options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1,0);
+                options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = new UrlSegmentApiVersionReader();
@@ -34,11 +29,11 @@ namespace MicroerviceOrnegi.Shared.Extensions
 
         public static ApiVersionSet AddVersionSetExt(this WebApplication app)
         {
-            var apiVersionSet=app.NewApiVersionSet()
-                .HasApiVersion(new ApiVersion(1,0))
-                .HasApiVersion(new ApiVersion(1,0))
+            var apiVersionSet = app.NewApiVersionSet()
+                .HasApiVersion(new ApiVersion(1, 0))
+                .HasApiVersion(new ApiVersion(1, 0))
                 .ReportApiVersions().Build();
-            
+
             return apiVersionSet;
 
         }

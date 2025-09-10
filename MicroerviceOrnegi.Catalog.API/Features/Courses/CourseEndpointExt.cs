@@ -11,7 +11,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses
 
     public static class CourseEndpointExt
     {
-        public static void AddCourseGroupEndpointExt(this WebApplication app,ApiVersionSet ap)
+        public static void AddCourseGroupEndpointExt(this WebApplication app, ApiVersionSet ap)
         {
             app.MapGroup("api/v{version:apiVersion}/courses")
                 .CreateCourseGroupItemEndpoint()
