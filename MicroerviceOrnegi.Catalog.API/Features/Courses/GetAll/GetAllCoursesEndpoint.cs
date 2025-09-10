@@ -25,7 +25,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses.GetAll
     {
         public static RouteGroupBuilder GetAllCoursesGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapGet("/", async (IMediator mediator) => (await mediator.Send(new GetAllCoursesQuery())).ToGenericResult());
+            group.MapGet("/", async (IMediator mediator) => (await mediator.Send(new GetAllCoursesQuery())).ToGenericResult()).MapToApiVersion(1, 0);
 
             return group;
         }

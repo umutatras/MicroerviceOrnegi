@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOptionsExt();
 builder.Services.AddDatabaseServiceExt();
 builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
-
+builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
@@ -23,8 +23,8 @@ app.AddSeedDataExt().ContinueWith(x =>
         Console.WriteLine("Seed data added.");
     }
 });
-app.AddCategoryGroupEndpointExt();
-app.AddCourseGroupEndpointExt();
+app.AddCategoryGroupEndpointExt(app.AddVersionSetExt());
+app.AddCourseGroupEndpointExt(app.AddVersionSetExt());
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
