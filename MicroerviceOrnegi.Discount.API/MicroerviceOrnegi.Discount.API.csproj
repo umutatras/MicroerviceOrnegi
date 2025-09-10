@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
+    <PackageReference Include="MongoDB.EntityFrameworkCore" Version="8.3.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroerviceOrnegi.Shared\MicroerviceOrnegi.Shared.csproj" />
   </ItemGroup>
 
 </Project>
