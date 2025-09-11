@@ -2,7 +2,7 @@
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Delete
 {
-    public record DeleteBasketItemCommand(Guid CourseId):IRequestByServiceResult
+    public record DeleteBasketItemCommand(Guid Id):IRequestByServiceResult
     {
     }
 }

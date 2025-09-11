@@ -20,7 +20,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Delete
             }
 
             var currentBasket = System.Text.Json.JsonSerializer.Deserialize<Dtos.BasketDto>(basketAsString);
-            var existBasketItem = currentBasket?.BasketItems.FirstOrDefault(x => x.Id == request.CourseId);
+            var existBasketItem = currentBasket?.BasketItems.FirstOrDefault(x => x.Id == request.Id);
             if (existBasketItem is null)
             {
                 return ServiceResult.Error("Basket item not found", System.Net.HttpStatusCode.NotFound);

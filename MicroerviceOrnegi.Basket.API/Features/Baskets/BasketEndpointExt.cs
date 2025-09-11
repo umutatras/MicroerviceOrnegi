@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning.Builder;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Create;
+using MicroerviceOrnegi.Basket.API.Features.Baskets.Delete;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets
 {
@@ -11,7 +12,8 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets
             app.MapGroup("api/v{version:apiVersion}/baskets/item")
                 .WithTags("Baskets")
                 .WithApiVersionSet(apiVersionSet)
-                .AddBasketItemGroupItemEndpoint();
+                .AddBasketItemGroupItemEndpoint()
+                .DeleteBasketItemGroupItemEndpoint();
         }
     }
 }
