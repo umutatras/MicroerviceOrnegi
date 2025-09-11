@@ -1,11 +1,9 @@
 ﻿using MediatR;
-using MicroerviceOrnegi.Basket.API.Features.Baskets.Delete;
-using MicroerviceOrnegi.Shared.Filter;
 using MicroerviceOrnegi.Shared.Extensions;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
 {
-  
+
 
     public static class GetBasketQueryEndpoint
     {

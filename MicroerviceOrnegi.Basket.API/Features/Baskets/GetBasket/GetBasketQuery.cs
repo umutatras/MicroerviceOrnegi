@@ -3,7 +3,7 @@ using MicroerviceOrnegi.Shared;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
 {
-    public record GetBasketQuery:IRequestByServiceResult<BasketDto>
+    public record GetBasketQuery : IRequestByServiceResult<BasketDto>
     {
     }
 }

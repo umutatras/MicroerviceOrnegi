@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using MicroerviceOrnegi.Shared.Filter;
 using MicroerviceOrnegi.Shared.Extensions;
+using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
 {
@@ -13,5 +13,5 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
             return group;
         }
     }
-   
+
 }

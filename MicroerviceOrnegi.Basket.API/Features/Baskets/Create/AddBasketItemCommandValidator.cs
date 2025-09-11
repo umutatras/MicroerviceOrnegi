@@ -2,7 +2,7 @@
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
 {
-    public class AddBasketItemCommandValidator:AbstractValidator<AddBasketItemCommand>
+    public class AddBasketItemCommandValidator : AbstractValidator<AddBasketItemCommand>
     {
         public AddBasketItemCommandValidator()
         {

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using MicroerviceOrnegi.Basket.API.Const;
 using MicroerviceOrnegi.Basket.API.Dtos;
 using MicroerviceOrnegi.Shared;
@@ -9,7 +10,7 @@ using System.Text.Json;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
 {
-    public class GetBasketQueryHandler(IDistributedCache cache,IIdentityService service) : IRequestHandler<GetBasketQuery, ServiceResult<BasketDto>>
+    public class GetBasketQueryHandler(IDistributedCache cache, IIdentityService service,IMapper mapper) : IRequestHandler<GetBasketQuery, ServiceResult<BasketDto>>
     {
         public async Task<ServiceResult<BasketDto>> Handle(GetBasketQuery request, CancellationToken cancellationToken)
         {
@@ -21,9 +22,10 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
             {
                 return ServiceResult<BasketDto>.Error("Basket not found", HttpStatusCode.NotFound);
             }
-            var basket = JsonSerializer.Deserialize<BasketDto>(basketAsString);
+            var basket = JsonSerializer.Deserialize<Data.Basket>(basketAsString);
 
-            return ServiceResult<BasketDto>.SuccessAsOk(basket);
+            var basketDTO = mapper.Map<BasketDto>(basket);
+            return ServiceResult<BasketDto>.SuccessAsOk(basketDTO);
         }
     }
 }

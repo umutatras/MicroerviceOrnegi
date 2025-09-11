@@ -1,8 +1,6 @@
 ﻿using MediatR;
-using MicroerviceOrnegi.Basket.API.Features.Baskets.Create;
-using MicroerviceOrnegi.Shared.Filter;
 using MicroerviceOrnegi.Shared.Extensions;
-using Microsoft.AspNetCore.Mvc;
+using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Delete
 {
@@ -10,10 +8,10 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Delete
     {
         public static RouteGroupBuilder DeleteBasketItemGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapDelete("/{id:guid}", async (IMediator mediator,Guid id) => (await mediator.Send(new DeleteBasketItemCommand(id))).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<DeleteBasketItemCommand>>();
+            group.MapDelete("/{id:guid}", async (IMediator mediator, Guid id) => (await mediator.Send(new DeleteBasketItemCommand(id))).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<DeleteBasketItemCommand>>();
 
             return group;
         }
     }
- 
+
 }

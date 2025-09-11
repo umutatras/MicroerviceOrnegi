@@ -5,7 +5,7 @@ using MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets
 {
-  
+
     public static class BasketEndpointExt
     {
         public static void AddBasketGroupEndpointExt(this WebApplication app, ApiVersionSet apiVersionSet)
