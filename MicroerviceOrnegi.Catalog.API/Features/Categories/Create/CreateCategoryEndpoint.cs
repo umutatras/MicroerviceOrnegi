@@ -1,5 +1,4 @@
 ﻿using MicroerviceOrnegi.Shared.Filter;
-
 namespace MicroerviceOrnegi.Catalog.API.Features.Categories.Create
 {
     public static class CreateCategoryEndpoint
