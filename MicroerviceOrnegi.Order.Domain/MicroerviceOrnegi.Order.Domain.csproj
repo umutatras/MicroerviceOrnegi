@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroerviceOrnegi.Shared\MicroerviceOrnegi.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
