@@ -8,7 +8,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
     {
         public static RouteGroupBuilder ApplyDiscountCouponItemGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapPost("/apply-discount-rate", async (ApplyDiscountCouponCommand command, IMediator mediator) => (await mediator.Send(command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<ApplyDiscountCouponCommand>>(); ;
+            group.MapPost("/apply-discount-coupon", async (ApplyDiscountCouponCommand command, IMediator mediator) => (await mediator.Send(command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<ApplyDiscountCouponCommand>>(); ;
 
             return group;
         }

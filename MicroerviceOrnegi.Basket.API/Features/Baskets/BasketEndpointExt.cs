@@ -3,6 +3,7 @@ using MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Create;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Delete;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket;
+using MicroerviceOrnegi.Basket.API.Features.Baskets.RemoveDiscount;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets
 {
@@ -17,7 +18,8 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets
                 .AddBasketItemGroupItemEndpoint()
                 .DeleteBasketItemGroupItemEndpoint()
                 .GetBasketQueryItemGroupItemEndpoint()
-                .ApplyDiscountCouponItemGroupItemEndpoint();
+                .ApplyDiscountCouponItemGroupItemEndpoint()
+                .RemoveDiscountCouponGroupItemEndpoint();
         }
     }
 }

@@ -40,6 +40,9 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
             }
             currentBasket.Items.Add(newBasketItem);
 
+
+            currentBasket.ApplyAvailableDiscount();
+
             await CreateCacheAsync(currentBasket, cacheKey, cancellationToken);
 
             return ServiceResult.SuccessAsNoContent();
