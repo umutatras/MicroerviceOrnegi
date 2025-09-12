@@ -8,7 +8,7 @@ namespace MicroerviceOrnegi.File.API.Features.File.Delete
     {
         public async Task<ServiceResult> Handle(DeleteFileCommand request, CancellationToken cancellationToken)
         {
-            var fileInfo = provider.GetFileInfo(Path.Combine("files",request.FileName));
+            var fileInfo = provider.GetFileInfo(Path.Combine("files", request.FileName));
 
 
             if (!fileInfo.Exists)
