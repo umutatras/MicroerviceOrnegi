@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using MicroerviceOrnegi.Basket.API.Const;
-using MicroerviceOrnegi.Basket.API.Dtos;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Data;
 using MicroerviceOrnegi.Shared;
 using MicroerviceOrnegi.Shared.Services;

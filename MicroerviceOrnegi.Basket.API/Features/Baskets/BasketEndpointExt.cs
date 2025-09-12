@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning.Builder;
+using MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Create;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.Delete;
 using MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket;
@@ -15,7 +16,8 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets
                 .WithApiVersionSet(apiVersionSet)
                 .AddBasketItemGroupItemEndpoint()
                 .DeleteBasketItemGroupItemEndpoint()
-                .GetBasketQueryItemGroupItemEndpoint();
+                .GetBasketQueryItemGroupItemEndpoint()
+                .ApplyDiscountCouponItemGroupItemEndpoint();
         }
     }
 }

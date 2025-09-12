@@ -10,7 +10,7 @@ using System.Text.Json;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
 {
-    public class GetBasketQueryHandler(IDistributedCache cache, IIdentityService service,IMapper mapper) : IRequestHandler<GetBasketQuery, ServiceResult<BasketDto>>
+    public class GetBasketQueryHandler(IDistributedCache cache, IIdentityService service, IMapper mapper) : IRequestHandler<GetBasketQuery, ServiceResult<BasketDto>>
     {
         public async Task<ServiceResult<BasketDto>> Handle(GetBasketQuery request, CancellationToken cancellationToken)
         {

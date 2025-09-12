@@ -2,7 +2,7 @@
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
 {
-    public record ApplyDiscountCouponCommand(string Coupon,float Rate):IRequestByServiceResult
+    public record ApplyDiscountCouponCommand(string Coupon, float Rate) : IRequestByServiceResult
     {
     }
 }

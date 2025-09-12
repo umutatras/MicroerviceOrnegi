@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Distributed;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
 {
-    public class ApplyDiscountCouponCommandHandler(IIdentityService identityService,IDistributedCache cache) : IRequestHandler<ApplyDiscountCouponCommand, ServiceResult>
+    public class ApplyDiscountCouponCommandHandler(IIdentityService identityService, IDistributedCache cache) : IRequestHandler<ApplyDiscountCouponCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(ApplyDiscountCouponCommand request, CancellationToken cancellationToken)
         {
@@ -20,7 +20,10 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
             }
 
             var basket = System.Text.Json.JsonSerializer.Deserialize<Data.Basket>(basketAsJson);
-
+            if(!basket.Items.Any())
+            {
+                return ServiceResult.Error("BasketItem Not Found", "There is no basket for this user", System.Net.HttpStatusCode.NotFound);
+            }
             basket.ApplyNewDiscount(request.Coupon, request.Rate);
             var basketAsUpdatedJson = System.Text.Json.JsonSerializer.Serialize(basket);
 

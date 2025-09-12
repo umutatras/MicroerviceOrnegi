@@ -7,8 +7,8 @@
         public string? ImageUrl { get; set; }
         public decimal Price { get; set; }
         public decimal? PriceByApplyDiscountRate { get; set; }
-       
-        public BasketItem(Guid id,string name,string? imageUrl,decimal price, decimal? priceByApplyDiscountRate)
+
+        public BasketItem(Guid id, string name, string? imageUrl, decimal price, decimal? priceByApplyDiscountRate)
         {
             Id = id;
             Name = name;

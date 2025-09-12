@@ -12,9 +12,9 @@
 
         public Basket()
         {
-            
+
         }
-        public Basket(Guid userId,List<BasketItem> items)
+        public Basket(Guid userId, List<BasketItem> items)
         {
             UserId = userId;
             Items = items;

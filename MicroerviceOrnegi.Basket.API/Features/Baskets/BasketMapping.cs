@@ -2,7 +2,7 @@
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets
 {
-    public class BasketMapping:Profile
+    public class BasketMapping : Profile
     {
         public BasketMapping()
         {
