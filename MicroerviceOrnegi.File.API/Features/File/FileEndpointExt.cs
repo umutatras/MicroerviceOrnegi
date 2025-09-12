@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning.Builder;
+using MicroerviceOrnegi.File.API.Features.File.Delete;
 using MicroerviceOrnegi.File.API.Features.File.Upload;
 
 namespace MicroerviceOrnegi.File.API.Features.File
@@ -11,6 +12,7 @@ namespace MicroerviceOrnegi.File.API.Features.File
                 .WithTags("Files")
                 .WithApiVersionSet(apiVersionSet)
                 .UploadFileGroupItemEndpoint()
+                .DeleteFileGroupItemEndpoint()
                 ;
 
         }
