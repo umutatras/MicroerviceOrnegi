@@ -1,4 +1,5 @@
 using MicroerviceOrnegi.File.API;
+using MicroerviceOrnegi.File.API.Features.File;
 using MicroerviceOrnegi.Shared.Extensions;
 using Microsoft.Extensions.FileProviders;
 
@@ -12,6 +13,7 @@ builder.Services.AddCommonServiceExt(typeof(FileAssembly));
 builder.Services.AddVersioningExt();
 builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
 var app = builder.Build();
+app.FileGroupEndpointExt(app.AddVersionSetExt());
 
 app.UseStaticFiles();
 // Configure the HTTP request pipeline.
