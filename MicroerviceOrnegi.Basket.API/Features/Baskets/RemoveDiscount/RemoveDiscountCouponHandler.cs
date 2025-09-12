@@ -1,20 +1,18 @@
 ﻿using MediatR;
 using MicroerviceOrnegi.Basket.API.Const;
-using MicroerviceOrnegi.Basket.API.Features.Baskets.Create;
 using MicroerviceOrnegi.Shared;
-using MicroerviceOrnegi.Shared.Filter;
-using MicroerviceOrnegi.Shared.Services;
 using MicroerviceOrnegi.Shared.Extensions;
+using MicroerviceOrnegi.Shared.Services;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
 namespace MicroerviceOrnegi.Basket.API.Features.Baskets.RemoveDiscount
 {
 
-    public record RemoveDiscountCouponCommand:IRequestByServiceResult;
+    public record RemoveDiscountCouponCommand : IRequestByServiceResult;
 
 
-    public class RemoveDiscountCouponHandler(IIdentityService service,IDistributedCache cache) : IRequestHandler<RemoveDiscountCouponCommand, ServiceResult>
+    public class RemoveDiscountCouponHandler(IIdentityService service, IDistributedCache cache) : IRequestHandler<RemoveDiscountCouponCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(RemoveDiscountCouponCommand request, CancellationToken cancellationToken)
         {
@@ -25,9 +23,9 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.RemoveDiscount
             if (string.IsNullOrEmpty(basketAsString))
             {
                 return ServiceResult.Error("Basket Not Found", "Basket not found for the user", System.Net.HttpStatusCode.NotFound);
-            }   
+            }
 
-            var basket=JsonSerializer.Deserialize<Data.Basket>(basketAsString);
+            var basket = JsonSerializer.Deserialize<Data.Basket>(basketAsString);
 
             basket!.ClearDiscount();
 

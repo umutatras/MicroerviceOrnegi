@@ -20,7 +20,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
             }
 
             var basket = System.Text.Json.JsonSerializer.Deserialize<Data.Basket>(basketAsJson);
-            if(!basket.Items.Any())
+            if (!basket.Items.Any())
             {
                 return ServiceResult.Error("BasketItem Not Found", "There is no basket for this user", System.Net.HttpStatusCode.NotFound);
             }

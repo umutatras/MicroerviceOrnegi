@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using MicroerviceOrnegi.Shared.Filter;
 using MicroerviceOrnegi.Shared.Extensions;
 
 namespace MicroerviceOrnegi.File.API.Features.File.Upload
@@ -13,5 +12,5 @@ namespace MicroerviceOrnegi.File.API.Features.File.Upload
             return group;
         }
     }
-   
+
 }

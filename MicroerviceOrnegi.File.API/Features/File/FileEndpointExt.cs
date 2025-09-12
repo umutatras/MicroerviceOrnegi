@@ -1,12 +1,9 @@
-﻿using MediatR;
+﻿using Asp.Versioning.Builder;
 using MicroerviceOrnegi.File.API.Features.File.Upload;
-using MicroerviceOrnegi.Shared.Filter;
-using MicroerviceOrnegi.Shared.Extensions;
-using Asp.Versioning.Builder;
 
 namespace MicroerviceOrnegi.File.API.Features.File
 {
-  public static class FileEndpointExt
+    public static class FileEndpointExt
     {
         public static void FileGroupEndpointExt(this WebApplication app, ApiVersionSet apiVersionSet)
         {
@@ -15,7 +12,7 @@ namespace MicroerviceOrnegi.File.API.Features.File
                 .WithApiVersionSet(apiVersionSet)
                 .UploadFileGroupItemEndpoint()
                 ;
-                
+
         }
     }
 
