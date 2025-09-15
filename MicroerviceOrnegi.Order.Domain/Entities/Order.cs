@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MicroerviceOrnegi.Order.Domain.Entities
 {
-    public class Order:BaseEntity<Guid>
+    public class Order : BaseEntity<Guid>
     {
         public string Code { get; set; } = default!;
         public DateTime Created { get; set; }
@@ -23,17 +23,17 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
             var ordercode = new StringBuilder(10);
 
             for (int i = 0; i < 10; i++)
-            {                
+            {
                 ordercode.Append(random.Next(0, 10));
             }
-            return ordercode.ToString();    
+            return ordercode.ToString();
         }
 
         public static Order CreateUnPaidOrder(Guid buyerId, float discountRate, int addressId)
         {
             return new Order
             {
-                Id=NewId.NextGuid(),
+                Id = NewId.NextGuid(),
                 Code = GenerateCode(),
                 Created = DateTime.UtcNow,
                 BuyerId = buyerId,
@@ -43,7 +43,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
                 DiscountRate = discountRate
             };
         }
-        public void AddOrderItem(Guid productId,string productName,decimal unitPrice)
+        public void AddOrderItem(Guid productId, string productName, decimal unitPrice)
         {
             var orderItem = new OrderItem();
             orderItem.SetItem(productId, productName, unitPrice);
