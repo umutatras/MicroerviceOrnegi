@@ -1,22 +1,17 @@
-﻿using MicroerviceOrnegi.Order.Application.Repositories.Conracts;
+﻿using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
 using MicroerviceOrnegi.Order.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicroerviceOrnegi.Order.Persistence.Repositories
 {
     public class GenericRepository<TId, TEntity>(AppDbContext context) : IGenericRepository<TId, TEntity> where TEntity : BaseEntity<TId> where TId : struct
     {
         protected AppDbContext Context = context;
-        private readonly DbSet<TEntity> _dbSet=context.Set<TEntity>();
+        private readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
         public void AddAsync(TEntity entity)
         {
-           _dbSet.AddAsync(entity);
+            _dbSet.AddAsync(entity);
         }
 
         public Task<bool> AnyAsync(TId id)
@@ -41,7 +36,7 @@ namespace MicroerviceOrnegi.Order.Persistence.Repositories
 
         public Task<List<TEntity>> GetAllPagedAsync(int pageNumber, int pageSize)
         {
-            return _dbSet.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();   
+            return _dbSet.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
         public ValueTask<TEntity?> GetByIdAsync(TId id)

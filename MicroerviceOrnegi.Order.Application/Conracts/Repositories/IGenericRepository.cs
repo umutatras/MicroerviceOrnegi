@@ -1,7 +1,7 @@
 ﻿using MicroerviceOrnegi.Order.Domain.Entities;
 using System.Linq.Expressions;
 
-namespace MicroerviceOrnegi.Order.Application.Repositories.Conracts
+namespace MicroerviceOrnegi.Order.Application.Conracts.Repositories
 {
     public interface IGenericRepository<TId, TEntity> where TEntity : BaseEntity<TId>
         where TId : struct

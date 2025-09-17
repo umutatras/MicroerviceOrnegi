@@ -1,4 +1,4 @@
-using MicroerviceOrnegi.Order.Application.Repositories.Conracts;
+using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
 using MicroerviceOrnegi.Order.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
-builder.Services.AddScoped(typeof(IGenericRepository<,>),typeof(IGenericRepository<,>));
+builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(IGenericRepository<,>));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
