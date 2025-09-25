@@ -1,5 +1,10 @@
+using MicroerviceOrnegi.Order.API.Endpoints.Orders;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
+using MicroerviceOrnegi.Order.Application.Conracts.UnitOfWork;
 using MicroerviceOrnegi.Order.Persistence;
+using MicroerviceOrnegi.Order.Persistence.Repositories;
+using MicroerviceOrnegi.Order.Persistence.UnitOfWork;
+using MicroerviceOrnegi.Shared.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +17,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
-builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(IGenericRepository<,>));
-var app = builder.Build();
+builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddVersioningExt();
+var app = builder.Build();
+app.AddOrderGroupEndpointExt(app.AddVersionSetExt());
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
