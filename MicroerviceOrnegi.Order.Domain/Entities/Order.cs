@@ -29,7 +29,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
             return ordercode.ToString();
         }
 
-        public static Order CreateUnPaidOrder(Guid buyerId, float discountRate, int addressId)
+        public static Order CreateUnPaidOrder(Guid buyerId, float? discountRate, int addressId)
         {
             return new Order
             {
