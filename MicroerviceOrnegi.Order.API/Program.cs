@@ -1,4 +1,6 @@
+using MicroerviceOrnegi.Order.API;
 using MicroerviceOrnegi.Order.API.Endpoints.Orders;
+using MicroerviceOrnegi.Order.Application;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
 using MicroerviceOrnegi.Order.Application.Conracts.UnitOfWork;
 using MicroerviceOrnegi.Order.Persistence;
@@ -13,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCommonServiceExt(typeof(OrderApplicationAssembly));
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));

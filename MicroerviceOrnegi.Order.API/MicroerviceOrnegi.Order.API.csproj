@@ -20,4 +20,8 @@
     <ProjectReference Include="..\MicroerviceOrnegi.Order.Persistence\MicroerviceOrnegi.Order.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Options\" />
+  </ItemGroup>
+
 </Project>
