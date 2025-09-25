@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
+using MicroerviceOrnegi.Order.Application.Conracts.UnitOfWork;
 using MicroerviceOrnegi.Order.Domain.Entities;
 using MicroerviceOrnegi.Shared;
 using MicroerviceOrnegi.Shared.Services;
-using Microsoft.AspNetCore.Http;
 
 namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
 {
-    public class CreateOrderCommandHandler(IGenericRepository<Guid,Domain.Entities.Order> orderRepository,IGenericRepository<int,Address> addressRepository,IIdentityService identityService) : IRequestHandler<CreateOrderCommand, ServiceResult>
+    public class CreateOrderCommandHandler(IOrderRepository orderRepository, IIdentityService identityService, IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
@@ -16,16 +16,15 @@ namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
             {
                 return ServiceResult.Error("Order items not found", "", System.Net.HttpStatusCode.NotFound);
             }
-
             var newAddress = new Address
             {
-                District=request.Address.District,
-                Line=request.Address.Line,
-                Province=request.Address.Province,
+                District = request.Address.District,
+                Line = request.Address.Line,
+                Province = request.Address.Province,
                 Street = request.Address.Street
-                ,ZipCode=request.Address.ZipCode,
+                ,
+                ZipCode = request.Address.ZipCode,
             };
-            addressRepository.AddAsync(newAddress);
 
             var order = Domain.Entities.Order.CreateUnPaidOrder(identityService.GetUserId, request.DiscountRate, newAddress.Id);
 
@@ -33,14 +32,15 @@ namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
             {
                 order.AddOrderItem(item.ProductId, item.ProductName, item.UnitPrice);
             }
-
+            order.Address = newAddress;
             orderRepository.AddAsync(order);
-
+            await unitOfWork.CommitAsync(cancellationToken);
             var paymentId = Guid.Empty;
 
             order.SetPaidStatus(paymentId);
 
             orderRepository.Update(order);
+            await unitOfWork.CommitAsync(cancellationToken);
 
             return ServiceResult.SuccessAsNoContent();
         }
