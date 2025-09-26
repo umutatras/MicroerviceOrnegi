@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning.Builder;
 using MicroerviceOrnegi.Payment.API.Features.Payment.Create;
+using MicroerviceOrnegi.Payment.API.Features.Payment.GetAllPaymentByUserId;
 
 namespace MicroerviceOrnegi.Payment.API.Features.Payment
 {
@@ -12,6 +13,7 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment
                 .WithTags("Payments")
                 .WithApiVersionSet(apiVersionSet)
                 .PaymentCreateGroupItemEndpoint()
+                .GetAllPaymentByUserIdGroupItemEndpoint()
                 ;
 
         }

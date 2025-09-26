@@ -5,22 +5,22 @@ using MicroerviceOrnegi.Shared.Services;
 
 namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
 {
-    public class CreatePaymentCommandHandler(AppDbContext appDbContext, IIdentityService identityService) : IRequestHandler<CreatePaymentCommand, ServiceResult>
+    public class CreatePaymentCommandHandler(AppDbContext appDbContext, IIdentityService identityService) : IRequestHandler<CreatePaymentCommand, ServiceResult<Guid>>
     {
-        public async Task<ServiceResult> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResult<Guid>> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
         {
             var (isSuccess, errorMessage) = await ExternalPaymentProcessAsync(request.CardNumber, request.CardHolderName, request.CardExpirationDate, request.CardSecurityNumber, request.Amount);
 
             if (!isSuccess)
             {
-                return ServiceResult.Error("Payment Failed", errorMessage ?? "Payment process failed", System.Net.HttpStatusCode.BadRequest);
+                return ServiceResult<Guid>.Error("Payment Failed", errorMessage ?? "Payment process failed", System.Net.HttpStatusCode.BadRequest);
             }
 
             var newPayment = new Repositories.Payment(identityService.GetUserId, request.OrderCode, request.Amount);
             newPayment.SetStatus(PaymentStatus.Success);
             await appDbContext.Payments.AddAsync(newPayment, cancellationToken);
             await appDbContext.SaveChangesAsync(cancellationToken);
-            return ServiceResult.SuccessAsNoContent();
+            return ServiceResult<Guid>.SuccessAsOk(newPayment.Id);
 
         }
 
