@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
 {
@@ -12,12 +7,12 @@ namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
         public CreateOrderCommandValidator()
         {
             RuleFor(x => x.Address).NotNull().WithMessage("Address is required").SetValidator(new AddressValidator());
-            RuleForEach(x => x.Items).SetValidator(new OrderItemValidator()); 
+            RuleForEach(x => x.Items).SetValidator(new OrderItemValidator());
         }
     }
     public class OrderItemValidator : AbstractValidator<OrderItemDto>
     {
-       public OrderItemValidator()
+        public OrderItemValidator()
         {
             RuleFor(x => x.ProductId).NotEmpty().WithMessage("ProductId is required");
             RuleFor(x => x.ProductName).NotEmpty().WithMessage("ProductName is required");

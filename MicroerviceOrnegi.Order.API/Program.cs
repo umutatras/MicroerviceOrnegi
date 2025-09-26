@@ -1,4 +1,3 @@
-using MicroerviceOrnegi.Order.API;
 using MicroerviceOrnegi.Order.API.Endpoints.Orders;
 using MicroerviceOrnegi.Order.Application;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
