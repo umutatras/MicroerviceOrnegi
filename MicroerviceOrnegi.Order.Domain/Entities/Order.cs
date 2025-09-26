@@ -59,7 +59,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
         public void AddOrderItem(Guid productId, string productName, decimal unitPrice)
         {
             var orderItem = new OrderItem();
-            if(DiscountRate.HasValue && DiscountRate.Value > 0)
+            if (DiscountRate.HasValue && DiscountRate.Value > 0)
             {
                 unitPrice = unitPrice - (unitPrice * (decimal)(DiscountRate.Value / 100));
             }
@@ -70,7 +70,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
         private void CalculateTotalPrice()
         {
             TotalPrice = OrderItems.Sum(item => item.UnitPrice);
-           
+
         }
         public void ApplyDiscount(float discountPercentage)
         {
