@@ -1,4 +1,5 @@
 using MicroerviceOrnegi.Payment.API;
+using MicroerviceOrnegi.Payment.API.Features.Payment;
 using MicroerviceOrnegi.Payment.API.Repositories;
 using MicroerviceOrnegi.Shared.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCommonServiceExt(typeof(PaymentAssembly));
 builder.Services.AddVersioningExt();
 var app = builder.Build();
-//app.FileGroupEndpointExt(app.AddVersionSetExt());
+app.PaymentGroupEndpointExt(app.AddVersionSetExt());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
