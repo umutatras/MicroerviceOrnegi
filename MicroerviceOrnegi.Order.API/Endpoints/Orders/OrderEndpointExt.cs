@@ -9,7 +9,8 @@ namespace MicroerviceOrnegi.Order.API.Endpoints.Orders
             app.MapGroup("api/v{version:apiVersion}/orders")
                 .WithTags("Orders")
                 .WithApiVersionSet(apiVersionSet)
-                .CreateOrderGroupItemEndpoint();
+                .CreateOrderGroupItemEndpoint()
+                .GetOrdersGroupItemEndpoint();
         }
     }
 }

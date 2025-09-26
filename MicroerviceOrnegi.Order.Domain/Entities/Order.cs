@@ -59,18 +59,18 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
         public void AddOrderItem(Guid productId, string productName, decimal unitPrice)
         {
             var orderItem = new OrderItem();
+            if(DiscountRate.HasValue && DiscountRate.Value > 0)
+            {
+                unitPrice = unitPrice - (unitPrice * (decimal)(DiscountRate.Value / 100));
+            }
             orderItem.SetItem(productId, productName, unitPrice);
             OrderItems.Add(orderItem);
             CalculateTotalPrice();
         }
         private void CalculateTotalPrice()
         {
-            decimal total = OrderItems.Sum(item => item.UnitPrice);
-            if (DiscountRate.HasValue && DiscountRate.Value > 0)
-            {
-                total -= total * (decimal)(DiscountRate.Value / 100);
-            }
-            TotalPrice = total;
+            TotalPrice = OrderItems.Sum(item => item.UnitPrice);
+           
         }
         public void ApplyDiscount(float discountPercentage)
         {

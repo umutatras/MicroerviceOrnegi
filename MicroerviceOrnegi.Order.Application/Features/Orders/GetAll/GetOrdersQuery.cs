@@ -2,5 +2,6 @@
 
 namespace MicroerviceOrnegi.Order.Application.Features.Orders.GetAll
 {
-    public record GetOrdersQuery:IRequestByServiceResult<List<GetOrdersResponse>>;
-   
+    public record GetOrdersQuery : IRequestByServiceResult<List<GetOrdersResponse>>;
+
+
