@@ -10,11 +10,11 @@ namespace MicroerviceOrnegi.Payment.API.Repositories
         public DateTime Created { get; set; }
         public decimal Amount { get; set; }
         public PaymentStatus Status { get; set; }
-        public Payment(Guid userId,string orderCode,decimal amount)
+        public Payment(Guid userId, string orderCode, decimal amount)
         {
             Create(userId, orderCode, amount);
         }
-        public void Create(Guid userId,string orderCode, decimal amount)
+        public void Create(Guid userId, string orderCode, decimal amount)
         {
             Id = NewId.NextSequentialGuid();
             UserId = userId;

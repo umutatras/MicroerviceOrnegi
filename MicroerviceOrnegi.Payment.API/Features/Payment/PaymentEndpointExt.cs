@@ -3,7 +3,7 @@ using MicroerviceOrnegi.Payment.API.Features.Payment.Create;
 
 namespace MicroerviceOrnegi.Payment.API.Features.Payment
 {
-    
+
     public static class PaymentEndpointExt
     {
         public static void PaymentGroupEndpointExt(this WebApplication app, ApiVersionSet apiVersionSet)

@@ -4,7 +4,7 @@ using MicroerviceOrnegi.Shared.Filter;
 
 namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
 {
-   
+
     public static class PaymentCreateEndpoint
     {
         public static RouteGroupBuilder PaymentCreateGroupItemEndpoint(this RouteGroupBuilder group)

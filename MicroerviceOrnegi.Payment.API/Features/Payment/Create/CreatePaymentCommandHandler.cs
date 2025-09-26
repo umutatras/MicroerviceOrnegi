@@ -5,13 +5,13 @@ using MicroerviceOrnegi.Shared.Services;
 
 namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
 {
-    public class CreatePaymentCommandHandler(AppDbContext appDbContext,IIdentityService identityService):IRequestHandler<CreatePaymentCommand,ServiceResult>
+    public class CreatePaymentCommandHandler(AppDbContext appDbContext, IIdentityService identityService) : IRequestHandler<CreatePaymentCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
         {
-            var (isSuccess,errorMessage)= await ExternalPaymentProcessAsync(request.CardNumber, request.CardHolderName, request.CardExpirationDate, request.CardSecurityNumber, request.Amount);
+            var (isSuccess, errorMessage) = await ExternalPaymentProcessAsync(request.CardNumber, request.CardHolderName, request.CardExpirationDate, request.CardSecurityNumber, request.Amount);
 
-            if(!isSuccess)
+            if (!isSuccess)
             {
                 return ServiceResult.Error("Payment Failed", errorMessage ?? "Payment process failed", System.Net.HttpStatusCode.BadRequest);
             }
@@ -24,10 +24,10 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
 
         }
 
-        private async Task<(bool isSuccess,string? errorMessage)> ExternalPaymentProcessAsync(string cardNumber,string cardHolderName,string cardExpirationDate,string cardSecurityNumber,decimal amount)
+        private async Task<(bool isSuccess, string? errorMessage)> ExternalPaymentProcessAsync(string cardNumber, string cardHolderName, string cardExpirationDate, string cardSecurityNumber, decimal amount)
         {
             await Task.Delay(2000);
-            return (true,null);
+            return (true, null);
         }
     }
 }
