@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "payment", "payment", "{2E47
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroerviceOrnegi.Payment.API", "MicroerviceOrnegi.Payment.API\MicroerviceOrnegi.Payment.API.csproj", "{6C801E50-D470-4F34-9BBA-CAA8BA5DC684}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{F599CD31-1132-4A00-BFD5-CC6052135D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroerviceOrnegi.Gateway", "MicroerviceOrnegi.Gateway\MicroerviceOrnegi.Gateway.csproj", "{5CB884BB-DA72-45D8-95D6-A903C8BC8541}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{6C801E50-D470-4F34-9BBA-CAA8BA5DC684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C801E50-D470-4F34-9BBA-CAA8BA5DC684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C801E50-D470-4F34-9BBA-CAA8BA5DC684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB884BB-DA72-45D8-95D6-A903C8BC8541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB884BB-DA72-45D8-95D6-A903C8BC8541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB884BB-DA72-45D8-95D6-A903C8BC8541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB884BB-DA72-45D8-95D6-A903C8BC8541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,5 +133,7 @@ Global
 		{6D2E0C09-11E1-40C2-8339-E49336EEEAE1} = {AF7C4E66-BFC1-4799-9AF3-8203779F25A6}
 		{2E474BB9-6C47-45DA-A1CE-E35B21E36F46} = {A9C4B69E-E5E3-40E5-A1F2-AEE7E0139DE6}
 		{6C801E50-D470-4F34-9BBA-CAA8BA5DC684} = {2E474BB9-6C47-45DA-A1CE-E35B21E36F46}
+		{F599CD31-1132-4A00-BFD5-CC6052135D6E} = {A9C4B69E-E5E3-40E5-A1F2-AEE7E0139DE6}
+		{5CB884BB-DA72-45D8-95D6-A903C8BC8541} = {F599CD31-1132-4A00-BFD5-CC6052135D6E}
 	EndGlobalSection
 EndGlobal
