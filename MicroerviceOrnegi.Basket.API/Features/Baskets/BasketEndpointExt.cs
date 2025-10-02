@@ -19,7 +19,8 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets
                 .DeleteBasketItemGroupItemEndpoint()
                 .GetBasketQueryItemGroupItemEndpoint()
                 .ApplyDiscountCouponItemGroupItemEndpoint()
-                .RemoveDiscountCouponGroupItemEndpoint();
+                .RemoveDiscountCouponGroupItemEndpoint()
+                .RequireAuthorization();
         }
     }
 }

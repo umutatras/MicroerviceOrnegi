@@ -12,7 +12,8 @@ namespace MicroerviceOrnegi.Discount.API.Features.Discounts
                 .WithTags("Discounts")
                 .WithApiVersionSet(apiVersionSet)
                 .CreateDiscountGroupItemEndpoint()
-                .GetDiscountByCodeGroupItemEndpoint();
+                .GetDiscountByCodeGroupItemEndpoint()
+                .RequireAuthorization();
         }
     }
 }

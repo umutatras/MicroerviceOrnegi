@@ -13,6 +13,7 @@ namespace MicroerviceOrnegi.File.API.Features.File
                 .WithApiVersionSet(apiVersionSet)
                 .UploadFileGroupItemEndpoint()
                 .DeleteFileGroupItemEndpoint()
+                .RequireAuthorization()
                 ;
 
         }

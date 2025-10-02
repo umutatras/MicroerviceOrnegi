@@ -10,7 +10,8 @@ namespace MicroerviceOrnegi.Order.API.Endpoints.Orders
                 .WithTags("Orders")
                 .WithApiVersionSet(apiVersionSet)
                 .CreateOrderGroupItemEndpoint()
-                .GetOrdersGroupItemEndpoint();
+                .GetOrdersGroupItemEndpoint()
+                .RequireAuthorization();
         }
     }
 }
