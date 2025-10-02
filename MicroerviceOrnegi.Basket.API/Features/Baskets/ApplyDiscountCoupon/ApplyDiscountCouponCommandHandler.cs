@@ -10,7 +10,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.ApplyDiscountCoupon
     {
         public async Task<ServiceResult> Handle(ApplyDiscountCouponCommand request, CancellationToken cancellationToken)
         {
-            var cacheKey = string.Format(BasketConst.BasketCacheKey, identityService.GetUserId);
+            var cacheKey = string.Format(BasketConst.BasketCacheKey, identityService.UserId);
 
             var basketAsJson = await cache.GetStringAsync(cacheKey, cancellationToken);
 

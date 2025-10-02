@@ -16,7 +16,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.RemoveDiscount
     {
         public async Task<ServiceResult> Handle(RemoveDiscountCouponCommand request, CancellationToken cancellationToken)
         {
-            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.GetUserId);
+            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.UserId);
 
             var basketAsString = await cache.GetStringAsync(cacheKey, cancellationToken);
 

@@ -10,7 +10,7 @@ namespace MicroerviceOrnegi.Discount.API.Features.Discounts.Create
     {
         public async Task<ServiceResult> Handle(CreateDiscountCommand request, CancellationToken cancellationToken)
         {
-            var hasCode = await context.Discounts.AnyAsync(x => x.Code == request.Code && x.UserId == identityService.GetUserId, cancellationToken);
+            var hasCode = await context.Discounts.AnyAsync(x => x.Code == request.Code && x.UserId == identityService.UserId, cancellationToken);
             if (hasCode)
             {
                 return ServiceResult.Error("This code already exists.", "", System.Net.HttpStatusCode.BadRequest);

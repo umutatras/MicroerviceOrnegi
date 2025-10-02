@@ -13,7 +13,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
         public async Task<ServiceResult> Handle(AddBasketItemCommand request, CancellationToken cancellationToken)
         {
 
-            var cacheKey = string.Format(BasketConst.BasketCacheKey, identityService.GetUserId);
+            var cacheKey = string.Format(BasketConst.BasketCacheKey, identityService.UserId);
 
             var basketAsString = await cache.GetStringAsync(cacheKey, cancellationToken);
 
@@ -26,7 +26,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Create
 
             if (string.IsNullOrEmpty(basketAsString))
             {
-                currentBasket = new Data.Basket(identityService.GetUserId, [newBasketItem]);
+                currentBasket = new Data.Basket(identityService.UserId, [newBasketItem]);
                 await CreateCacheAsync(currentBasket, cacheKey, cancellationToken);
 
                 return ServiceResult.SuccessAsNoContent();

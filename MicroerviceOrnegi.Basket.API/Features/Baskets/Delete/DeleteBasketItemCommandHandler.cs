@@ -10,7 +10,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.Delete
     {
         public async Task<ServiceResult> Handle(DeleteBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.GetUserId);
+            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.UserId);
 
             var basketAsString = await cache.GetStringAsync(cacheKey, cancellationToken);
 

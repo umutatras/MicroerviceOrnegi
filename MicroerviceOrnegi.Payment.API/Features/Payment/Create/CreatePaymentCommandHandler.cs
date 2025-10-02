@@ -16,7 +16,7 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
                 return ServiceResult<Guid>.Error("Payment Failed", errorMessage ?? "Payment process failed", System.Net.HttpStatusCode.BadRequest);
             }
 
-            var newPayment = new Repositories.Payment(identityService.GetUserId, request.OrderCode, request.Amount);
+            var newPayment = new Repositories.Payment(identityService.UserId, request.OrderCode, request.Amount);
             newPayment.SetStatus(PaymentStatus.Success);
             await appDbContext.Payments.AddAsync(newPayment, cancellationToken);
             await appDbContext.SaveChangesAsync(cancellationToken);

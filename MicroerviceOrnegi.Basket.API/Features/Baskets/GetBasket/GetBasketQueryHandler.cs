@@ -14,7 +14,7 @@ namespace MicroerviceOrnegi.Basket.API.Features.Baskets.GetBasket
     {
         public async Task<ServiceResult<BasketDto>> Handle(GetBasketQuery request, CancellationToken cancellationToken)
         {
-            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.GetUserId);
+            var cacheKey = string.Format(BasketConst.BasketCacheKey, service.UserId);
 
             var basketAsString = await cache.GetStringAsync(cacheKey, cancellationToken);
 

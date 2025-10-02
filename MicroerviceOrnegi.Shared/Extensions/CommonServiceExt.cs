@@ -12,7 +12,7 @@ namespace MicroerviceOrnegi.Shared.Extensions
             services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining(assembly));
             services.AddValidatorsFromAssemblyContaining(assembly);
             services.AddAutoMapper(assembly);
-            services.AddScoped<IIdentityService, IIdentityServiceFake>();
+            services.AddScoped<IIdentityService, IdentityService>();
             return services;
         }
     }

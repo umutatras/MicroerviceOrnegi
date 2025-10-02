@@ -26,7 +26,7 @@ namespace MicroerviceOrnegi.Order.Application.Features.Orders.Create
                 ZipCode = request.Address.ZipCode,
             };
 
-            var order = Domain.Entities.Order.CreateUnPaidOrder(identityService.GetUserId, request.DiscountRate, newAddress.Id);
+            var order = Domain.Entities.Order.CreateUnPaidOrder(identityService.UserId, request.DiscountRate, newAddress.Id);
 
             foreach (var item in request.Items)
             {
