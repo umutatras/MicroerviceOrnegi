@@ -13,7 +13,7 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment
                 .WithTags("Payments")
                 .WithApiVersionSet(apiVersionSet)
                 .PaymentCreateGroupItemEndpoint()
-                .GetAllPaymentByUserIdGroupItemEndpoint()                
+                .GetAllPaymentByUserIdGroupItemEndpoint()
                 ;
 
         }
