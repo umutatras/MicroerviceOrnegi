@@ -14,6 +14,7 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment
                 .WithApiVersionSet(apiVersionSet)
                 .PaymentCreateGroupItemEndpoint()
                 .GetAllPaymentByUserIdGroupItemEndpoint()
+                .RequireAuthorization()
                 ;
 
         }
