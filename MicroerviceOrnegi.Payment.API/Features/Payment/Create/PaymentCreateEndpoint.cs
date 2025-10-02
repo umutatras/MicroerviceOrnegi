@@ -9,7 +9,7 @@ namespace MicroerviceOrnegi.Payment.API.Features.Payment.Create
     {
         public static RouteGroupBuilder PaymentCreateGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapPost("/", async (CreatePaymentCommand command, IMediator mediator) => (await mediator.Send(command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<CreatePaymentCommandValidator>>();
+            group.MapPost("/", async (CreatePaymentCommand command, IMediator mediator) => (await mediator.Send(command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<CreatePaymentCommandValidator>>().RequireAuthorization("Password");
 
             return group;
         }
