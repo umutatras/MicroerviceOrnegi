@@ -14,7 +14,7 @@
             var category = new Category
             {
                 Name = request.name,
-                Id = NewId.NextSequentialGuid()
+                Id = Guid.NewGuid()
             };
             await context.AddAsync(category, cancellationToken);
             await context.SaveChangesAsync(cancellationToken);

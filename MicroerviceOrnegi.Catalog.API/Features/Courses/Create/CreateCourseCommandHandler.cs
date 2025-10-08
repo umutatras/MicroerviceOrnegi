@@ -18,7 +18,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses.Create
             }
             var newCourse = mapper.Map<Course>(request);
             newCourse.Created = DateTime.UtcNow;
-            newCourse.Id = NewId.NextSequentialGuid();
+            newCourse.Id = Guid.NewGuid();
             newCourse.Feature = new Feature()
             {
                 Duration = 0,

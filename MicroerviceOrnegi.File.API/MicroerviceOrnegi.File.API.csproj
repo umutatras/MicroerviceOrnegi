@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MicroerviceOrnegi.Bus\MicroerviceOrnegi.Bus.csproj" />
     <ProjectReference Include="..\MicroerviceOrnegi.Shared\MicroerviceOrnegi.Shared.csproj" />
   </ItemGroup>
 

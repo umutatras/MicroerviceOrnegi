@@ -1,5 +1,4 @@
-﻿using MassTransit;
-using System.Text;
+﻿using System.Text;
 
 
 namespace MicroerviceOrnegi.Order.Domain.Entities
@@ -33,7 +32,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
         {
             return new Order
             {
-                Id = NewId.NextGuid(),
+                Id = Guid.NewGuid(),
                 Code = GenerateCode(),
                 Created = DateTime.UtcNow,
                 BuyerId = buyerId,
@@ -47,7 +46,7 @@ namespace MicroerviceOrnegi.Order.Domain.Entities
         {
             return new Order
             {
-                Id = NewId.NextGuid(),
+                Id = Guid.NewGuid(),
                 Code = GenerateCode(),
                 Created = DateTime.UtcNow,
                 BuyerId = buyerId,
