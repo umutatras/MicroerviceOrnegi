@@ -1,3 +1,4 @@
+using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Payment.API;
 using MicroerviceOrnegi.Payment.API.Features.Payment;
 using MicroerviceOrnegi.Payment.API.Repositories;
@@ -17,6 +18,8 @@ builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
 
 builder.Services.AddCommonServiceExt(typeof(PaymentAssembly));
 builder.Services.AddVersioningExt();
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
+
 var app = builder.Build();
 app.PaymentGroupEndpointExt(app.AddVersionSetExt());
 

@@ -1,3 +1,4 @@
+using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Order.API.Endpoints.Orders;
 using MicroerviceOrnegi.Order.Application;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
@@ -25,6 +26,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddVersioningExt();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 app.AddOrderGroupEndpointExt(app.AddVersionSetExt());

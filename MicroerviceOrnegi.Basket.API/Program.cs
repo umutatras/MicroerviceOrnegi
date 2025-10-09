@@ -1,5 +1,6 @@
 using MicroerviceOrnegi.Basket.API;
 using MicroerviceOrnegi.Basket.API.Features.Baskets;
+using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCommonServiceExt(typeof(BasketAssembly));
 builder.Services.AddVersioningExt();
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");

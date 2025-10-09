@@ -1,3 +1,4 @@
+using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Discount.API;
 using MicroerviceOrnegi.Discount.API.Features.Discounts;
 using MicroerviceOrnegi.Discount.API.Options;
@@ -14,6 +15,7 @@ builder.Services.AddCommonServiceExt(typeof(DiscountAssembly));
 builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 app.AddDiscountGroupEndpointExt(app.AddVersionSetExt());

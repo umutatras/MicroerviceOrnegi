@@ -1,3 +1,4 @@
+using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Catalog.API;
 using MicroerviceOrnegi.Catalog.API.Features.Categories;
 using MicroerviceOrnegi.Catalog.API.Features.Courses;
@@ -11,6 +12,7 @@ builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+builder.Services.AddCommonMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 app.AddSeedDataExt().ContinueWith(x =>
