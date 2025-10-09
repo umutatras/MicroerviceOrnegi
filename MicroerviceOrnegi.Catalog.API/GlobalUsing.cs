@@ -1,6 +1,5 @@
 ﻿global using AutoMapper;
 global using FluentValidation;
-global using MassTransit;
 global using MediatR;
 global using MicroerviceOrnegi.Catalog.API.Features.Categories.Dtos;
 global using MicroerviceOrnegi.Catalog.API.Repositories;
