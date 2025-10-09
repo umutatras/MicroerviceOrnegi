@@ -1,4 +1,3 @@
-using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Catalog.API;
 using MicroerviceOrnegi.Catalog.API.Features.Categories;
 using MicroerviceOrnegi.Catalog.API.Features.Courses;
