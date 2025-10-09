@@ -1,5 +1,6 @@
 ﻿using MassTransit;
 using MicroerviceOrnegi.Bus.Commands;
+using MicroerviceOrnegi.Bus.Events;
 using Microsoft.Extensions.FileProviders;
 
 namespace MicroerviceOrnegi.File.API.Consumers
@@ -18,7 +19,11 @@ namespace MicroerviceOrnegi.File.API.Consumers
 
 
             await System.IO.File.WriteAllBytesAsync(uploadPath, context.Message.Picture);
-         
+            var publishEndpoint = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
+
+
+            await publishEndpoint.Publish(new CoursePictureUploadedEvent(context.Message.CourseId,
+                $"files/{newFileName}"));
         }
     }
 }

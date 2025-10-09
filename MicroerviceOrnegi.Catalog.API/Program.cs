@@ -12,7 +12,7 @@ builder.Services.AddVersioningExt();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
-builder.Services.AddCommonMasstransitExt(builder.Configuration);
+builder.Services.AddMasstransitExt(builder.Configuration);
 
 var app = builder.Build();
 app.AddSeedDataExt().ContinueWith(x =>
