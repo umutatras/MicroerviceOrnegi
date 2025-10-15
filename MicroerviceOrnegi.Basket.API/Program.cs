@@ -1,6 +1,5 @@
 using MicroerviceOrnegi.Basket.API;
 using MicroerviceOrnegi.Basket.API.Features.Baskets;
-using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
