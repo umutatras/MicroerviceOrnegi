@@ -1,4 +1,3 @@
-using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Discount.API;
 using MicroerviceOrnegi.Discount.API.Features.Discounts;
 using MicroerviceOrnegi.Discount.API.Options;

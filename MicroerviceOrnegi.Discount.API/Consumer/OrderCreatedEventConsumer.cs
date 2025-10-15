@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using MicroerviceOrnegi.Bus.Events;
-using MicroerviceOrnegi.Discount.API.Repositories;
 using MicroerviceOrnegi.Discount.API.Features.Discounts;
+using MicroerviceOrnegi.Discount.API.Repositories;
 namespace MicroerviceOrnegi.Discount.API.Consumer;
 
 public class OrderCreatedEventConsumer(IServiceProvider serviceProvider) : IConsumer<OrderCreatedEvent>
