@@ -2,16 +2,13 @@ using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Order.API.Endpoints.Orders;
 using MicroerviceOrnegi.Order.Application;
 using MicroerviceOrnegi.Order.Application.Conracts.Refit;
-using MicroerviceOrnegi.Order.Application.Conracts.Refit.PaymentService;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
 using MicroerviceOrnegi.Order.Application.Conracts.UnitOfWork;
 using MicroerviceOrnegi.Order.Persistence;
 using MicroerviceOrnegi.Order.Persistence.Repositories;
 using MicroerviceOrnegi.Order.Persistence.UnitOfWork;
 using MicroerviceOrnegi.Shared.Extensions;
-using MicroerviceOrnegi.Shared.Options;
 using Microsoft.EntityFrameworkCore;
-using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
