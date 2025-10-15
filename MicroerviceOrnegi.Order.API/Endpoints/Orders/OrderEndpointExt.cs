@@ -11,7 +11,7 @@ namespace MicroerviceOrnegi.Order.API.Endpoints.Orders
                 .WithApiVersionSet(apiVersionSet)
                 .CreateOrderGroupItemEndpoint()
                 .GetOrdersGroupItemEndpoint()
-                .RequireAuthorization();
+                .RequireAuthorization("Password");
         }
     }
 }
