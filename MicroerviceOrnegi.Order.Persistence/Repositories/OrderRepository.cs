@@ -1,4 +1,5 @@
 ﻿using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
+using MicroerviceOrnegi.Order.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroerviceOrnegi.Order.Persistence.Repositories;
@@ -15,4 +16,12 @@ public class OrderRepository(AppDbContext context) : GenericRepository<Guid, Dom
             .ToListAsync();
     }
 
+    public async Task SetStatus(string orderCode, Guid paymentId, OrderStatus status)
+    {
+        var order = await context.Orders.FirstAsync(x => x.Code == orderCode);
+
+        order.Status = status;
+        order.PaymentId = paymentId;
+        context.Update(order);
+    }
 }

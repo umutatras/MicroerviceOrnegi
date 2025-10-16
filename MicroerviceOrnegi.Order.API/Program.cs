@@ -1,6 +1,7 @@
 using MicroerviceOrnegi.Bus;
 using MicroerviceOrnegi.Order.API.Endpoints.Orders;
 using MicroerviceOrnegi.Order.Application;
+using MicroerviceOrnegi.Order.Application.BackgroundServices;
 using MicroerviceOrnegi.Order.Application.Conracts.Refit;
 using MicroerviceOrnegi.Order.Application.Conracts.Repositories;
 using MicroerviceOrnegi.Order.Application.Conracts.UnitOfWork;
@@ -25,7 +26,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericReposito
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddCommonMasstransitExt(builder.Configuration);
-
+builder.Services.AddHostedService<CheckPaymentStatusOrderBackgroundService>();
 builder.Services.AddVersioningExt();
 builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
 builder.Services.AddRefitConfigurationExt(builder.Configuration);
