@@ -1,7 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using Refit;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using ProblemDetails = Microsoft.AspNetCore.Mvc.ProblemDetails;
-using Refit;
 
 namespace MicroerviceOrnegi.Web.Services;
 
