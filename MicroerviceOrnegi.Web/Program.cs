@@ -8,6 +8,7 @@ using MicroerviceOrnegi.Web.Services;
 using MicroerviceOrnegi.Web.Services.Refit;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Refit;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,15 @@ builder.Services.AddAuthentication(configureOption =>
 builder.Services.AddAuthorization();
 var app = builder.Build();
 
+var culterInfo = new System.Globalization.CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = culterInfo;
+CultureInfo.DefaultThreadCurrentUICulture = culterInfo;
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(culterInfo),
+    SupportedCultures = new List<CultureInfo> { culterInfo },
+    SupportedUICultures = new List<CultureInfo> { culterInfo }
+});
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
