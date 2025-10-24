@@ -29,8 +29,8 @@ namespace MicroerviceOrnegi.Shared.Extensions
                     ValidateIssuerSigningKey = true,
                     ValidateLifetime = true,
                     ValidateIssuer = true,
-                    RoleClaimType = "roles",
-                    NameClaimType = "preferred_username"
+                    RoleClaimType = ClaimTypes.Role,
+                    NameClaimType = ClaimTypes.NameIdentifier
                 };
 
             }).AddJwtBearer("ClientCredentialSchema", options =>
