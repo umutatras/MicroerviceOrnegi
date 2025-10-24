@@ -16,7 +16,7 @@ namespace MicroerviceOrnegi.Web.Services
 
             if (!coursesAsResult.IsSuccessStatusCode)
             {
-                logger.Log(coursesAsResult.Error);
+                //logger.logpr(coursesAsResult.Error);
 
                 return ServiceResult<List<CourseViewModel>>.Error(
                     "Failed to retrieve course data. Please try again later.");
