@@ -43,7 +43,7 @@ public class TokenService(IHttpClientFactory httpClientFactory, IdentityOption i
 
         AuthenticationProperties authenticationProperties = new()
         {
-            IsPersistent = true
+            IsPersistent = true//cookie kalıcı olsun
         };
 
         authenticationProperties.StoreTokens(authenticationTokens);
