@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MicroerviceOrnegi.Shared.ExceptionHandler;
 using MicroerviceOrnegi.Shared.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +14,7 @@ namespace MicroerviceOrnegi.Shared.Extensions
             services.AddValidatorsFromAssemblyContaining(assembly);
             services.AddAutoMapper(assembly);
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddExceptionHandler<GlobalExceptionHandler>();
             return services;
         }
     }
