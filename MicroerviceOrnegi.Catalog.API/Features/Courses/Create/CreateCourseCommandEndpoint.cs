@@ -8,7 +8,7 @@ namespace MicroerviceOrnegi.Catalog.API.Features.Courses.Create
     {
         public static RouteGroupBuilder CreateCourseGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapPost("/", async ([FromForm] CreateCourseCommand Command, IMediator mediator) => (await mediator.Send(Command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<CreateCourseCommand>>().DisableAntiforgery();
+            group.MapPost("/", async ([FromForm] CreateCourseCommand Command, IMediator mediator) => (await mediator.Send(Command)).ToGenericResult()).MapToApiVersion(1, 0).AddEndpointFilter<ValidationFilter<CreateCourseCommand>>().DisableAntiforgery().RequireAuthorization(policyNames: "InstructorPolicy");
 
             return group;
         }

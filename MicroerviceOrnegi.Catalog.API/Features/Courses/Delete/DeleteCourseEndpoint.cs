@@ -22,7 +22,7 @@
     {
         public static RouteGroupBuilder DeleteCourseGroupItemEndpoint(this RouteGroupBuilder group)
         {
-            group.MapDelete("/{id:guid}", async (IMediator mediator, Guid id) => (await mediator.Send(new DeleteCourseCommand(id))).ToGenericResult()).MapToApiVersion(1, 0);
+            group.MapDelete("/{id:guid}", async (IMediator mediator, Guid id) => (await mediator.Send(new DeleteCourseCommand(id))).ToGenericResult()).MapToApiVersion(1, 0).RequireAuthorization("InstructorPolicy");
 
             return group;
         }
