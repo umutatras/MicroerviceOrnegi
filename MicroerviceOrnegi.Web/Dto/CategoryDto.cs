@@ -1,6 +1,4 @@
 ﻿namespace MicroerviceOrnegi.Web.Dto
 {
-    public class CategoryDto
-    {
-    }
+    public record CategoryDto(Guid Id, string Name);
 }

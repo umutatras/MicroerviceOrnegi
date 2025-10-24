@@ -1,8 +1,13 @@
+using MicroerviceOrnegi.Web.DelegateHandlers;
+using MicroerviceOrnegi.Web.ExceptionHandlers;
 using MicroerviceOrnegi.Web.Extensions;
+using MicroerviceOrnegi.Web.Options;
 using MicroerviceOrnegi.Web.Pages.Auth.SignIn;
 using MicroerviceOrnegi.Web.Pages.Auth.SignUp;
 using MicroerviceOrnegi.Web.Services;
+using MicroerviceOrnegi.Web.Services.Refit;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +20,16 @@ builder.Services.AddHttpClient<SignUpService>();
 builder.Services.AddHttpClient<SignInService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<AuthenticatedHttpClientHandler>();
+builder.Services.AddScoped<ClientAuthenticatedHttpClientHandler>();
+builder.Services.AddExceptionHandler<UnauthorizedAccessExceptionHandler>();
 
+builder.Services.AddRefitClient<ICatalogRefitService>().ConfigureHttpClient(configure =>
+{
+    var microserviceOption = builder.Configuration.GetSection(nameof(MicroserviceOption)).Get<MicroserviceOption>();
+    configure.BaseAddress = new Uri(microserviceOption!.Catalog.BaseAddress);
+}).AddHttpMessageHandler<AuthenticatedHttpClientHandler>()
+    .AddHttpMessageHandler<ClientAuthenticatedHttpClientHandler>();
 builder.Services.AddAuthentication(configureOption =>
 {
     configureOption.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
