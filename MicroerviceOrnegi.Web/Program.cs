@@ -1,5 +1,7 @@
 using MicroerviceOrnegi.Web.Extensions;
+using MicroerviceOrnegi.Web.Pages.Auth.SignIn;
 using MicroerviceOrnegi.Web.Pages.Auth.SignUp;
+using MicroerviceOrnegi.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,10 @@ builder.Services.AddMvc(opt=>opt.SuppressImplicitRequiredAttributeForNonNullable
 builder.Services.AddOptionsExt();
 
 builder.Services.AddHttpClient<SignUpService>();
+builder.Services.AddHttpClient<SignInService>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
