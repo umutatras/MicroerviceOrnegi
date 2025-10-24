@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddMvc(opt=>opt.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes=true);
+builder.Services.AddMvc(opt => opt.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddOptionsExt();
 
 builder.Services.AddHttpClient<SignUpService>();
