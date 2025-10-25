@@ -3,7 +3,6 @@ using MicroerviceOrnegi.Web.Pages.Basket.Dto;
 using MicroerviceOrnegi.Web.Pages.Basket.ViewModel;
 using MicroerviceOrnegi.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MicroerviceOrnegi.Web.Pages.Basket;
 

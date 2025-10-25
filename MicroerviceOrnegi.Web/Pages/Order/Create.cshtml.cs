@@ -2,7 +2,6 @@ using MicroerviceOrnegi.Web.PageModels;
 using MicroerviceOrnegi.Web.Pages.Order.ViewModel;
 using MicroerviceOrnegi.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MicroerviceOrnegi.Web.Pages.Order
 {

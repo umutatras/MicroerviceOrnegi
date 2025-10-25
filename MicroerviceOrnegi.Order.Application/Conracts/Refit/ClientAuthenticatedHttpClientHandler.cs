@@ -27,7 +27,7 @@ internal class ClientAuthenticatedHttpClientHandler(
         var client = httpClientFactory.CreateClient();
 
         client.BaseAddress = new Uri(identityOptions.Address);
-        var discoveryResponse = await client.GetDiscoveryDocumentAsync(discoveryRequest,cancellationToken: cancellationToken);
+        var discoveryResponse = await client.GetDiscoveryDocumentAsync(discoveryRequest, cancellationToken: cancellationToken);
 
 
         if (discoveryResponse.IsError)

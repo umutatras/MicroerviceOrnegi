@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using MicroerviceOrnegi.Web.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
-using MicroerviceOrnegi.Web.Services;
 
 namespace MicroerviceOrnegi.Web.PageModels
 {
