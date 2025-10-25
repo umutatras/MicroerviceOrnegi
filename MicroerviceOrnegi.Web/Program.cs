@@ -7,11 +7,14 @@ using MicroerviceOrnegi.Web.Pages.Auth.SignUp;
 using MicroerviceOrnegi.Web.Services;
 using MicroerviceOrnegi.Web.Services.Refit;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.DataProtection;
 using Refit;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "keys")))
+    .SetApplicationName("MicroserviceOrnegiWebbProtectionKeys").SetDefaultKeyLifetime(TimeSpan.FromDays(60));
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddMvc(opt => opt.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
@@ -22,6 +25,8 @@ builder.Services.AddHttpClient<SignInService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<CatalogService>();
+builder.Services.AddScoped<BasketService>();
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<UserService>();
 
 builder.Services.AddScoped<AuthenticatedHttpClientHandler>();
@@ -49,6 +54,14 @@ builder.Services.AddRefitClient<IDiscountRefitService>().ConfigureHttpClient(con
     configure.BaseAddress = new Uri(microserviceOption!.Discount.BaseAddress);
 }).AddHttpMessageHandler<AuthenticatedHttpClientHandler>()
     .AddHttpMessageHandler<ClientAuthenticatedHttpClientHandler>();
+
+builder.Services.AddRefitClient<IOrderRefitService>().ConfigureHttpClient(configure =>
+{
+    var microserviceOption = builder.Configuration.GetSection(nameof(MicroserviceOption)).Get<MicroserviceOption>();
+    configure.BaseAddress = new Uri(microserviceOption!.Order.BaseAddress);
+}).AddHttpMessageHandler<AuthenticatedHttpClientHandler>()
+    .AddHttpMessageHandler<ClientAuthenticatedHttpClientHandler>();
+
 
 builder.Services.AddAuthentication(configureOption =>
 {
