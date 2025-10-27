@@ -2,6 +2,7 @@ using MicroerviceOrnegi.Web.PageModels;
 using MicroerviceOrnegi.Web.Pages.Basket.Dto;
 using MicroerviceOrnegi.Web.Pages.Basket.ViewModel;
 using MicroerviceOrnegi.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroerviceOrnegi.Web.Pages.Basket;
