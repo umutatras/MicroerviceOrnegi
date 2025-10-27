@@ -130,52 +130,60 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
   microerviceornegi.basket.api:
-    image: microerviceornegibasketapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Basket.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.catalog.api:
-    image: microerviceornegicatalogapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Catalog.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.discount.api:
-    image: microerviceornegidiscountapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Discount.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.file.api:
-    image: microerviceornegifileapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.File.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.gateway:
-    image: microerviceornegigateway
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Gateway/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.order.api:
-    image: microerviceornegiorderapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Order.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.payment.api:
-    image: microerviceornegipaymentapi
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Payment.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
 
   microerviceornegi.web:
-    image: microerviceornegiweb
-    build:
-      context: .
-      dockerfile: MicroerviceOrnegi.Web/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "5050:8080"
 
 volumes:
   mongo.db.catalog.volume:

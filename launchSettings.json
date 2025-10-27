@@ -4,7 +4,14 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "microerviceornegi.catalog.api": "StartDebugging"
+        "microerviceornegi.catalog.api": "StartDebugging",
+        "microerviceornegi.basket.api": "StartDebugging",
+        "microerviceornegi.discount.api": "StartDebugging",
+        "microerviceornegi.file.api": "StartDebugging",
+        "microerviceornegi.gateway": "StartDebugging",
+        "microerviceornegi.order.api": "StartDebugging",
+        "microerviceornegi.payment.api": "StartDebugging",
+        "microerviceornegi.web": "StartDebugging"
       }
     }
   }
